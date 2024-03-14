@@ -42,9 +42,9 @@ export default function Message(props: TMessageProps) {
 
   let messageLabel = '';
   if (isCreatedByUser) {
-    messageLabel = UsernameDisplay ? user?.name : localize('com_user_message');
+    messageLabel = 'شما';
   } else {
-    messageLabel = message.sender;
+    messageLabel = 'دستیار خرید دیوار';
   }
 
   return (
