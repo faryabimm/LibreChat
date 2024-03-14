@@ -60,7 +60,7 @@ export default function Message(props: TMessageProps) {
               className={cn('relative flex w-full flex-col', isCreatedByUser ? '' : 'agent-turn')}
             >
               <div className="select-none font-semibold">
-                {isCreatedByUser ? 'You' : (assistant && assistant?.name) ?? 'Assistant'}
+                {isCreatedByUser ? 'شما' : 'دستیار خرید دیوار'}
               </div>
               <div className="flex-col gap-1 md:gap-3">
                 <div className="flex max-w-full flex-grow flex-col gap-0">
