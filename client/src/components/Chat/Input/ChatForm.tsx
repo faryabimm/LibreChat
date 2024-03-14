@@ -48,6 +48,8 @@ const ChatForm = ({ index = 0 }) => {
       }
       ask({ text: data.text });
       methods.reset();
+      document.querySelector('textarea[data-testid="text-input"]').blur();
+
       textAreaRef.current?.setRangeText('', 0, data.text.length, 'end');
     },
     [ask, methods],
