@@ -86,6 +86,45 @@
   src: url("$fonts/roboto-mono-latin-400-italic.woff2") format("woff2")
 }
 
+
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 900;
+	src: url('$fonts/IRANSansWeb(FaNum)_Black.woff2') format('woff2');
+
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: bold;
+	src: url('$fonts/IRANSansWeb(FaNum)_Bold.woff2') format('woff2');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 500;
+	src: url('$fonts/IRANSansWeb(FaNum)_Medium.woff2') format('woff2');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 300;
+	src: url('$fonts/IRANSansWeb(FaNum)_Light.woff2') format('woff2');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: 200;
+	src: url('$fonts/IRANSansWeb(FaNum)_UltraLight.woff2') format('woff2');
+}
+@font-face {
+	font-family: IRANSans;
+	font-style: normal;
+	font-weight: normal;
+	src: url('$fonts/IRANSansWeb(FaNum).woff2') format('woff2');
+}
+
 /*
 
 The default ChatGPT fonts, according to OpenAI's brand guidelines, are proprietary and require appropriate font license according to your use case.
@@ -1124,6 +1163,7 @@ button {
 body,
 html {
   height: 100%;
+  direction: rtl;
 }
 
 .dark body,
@@ -1892,7 +1932,7 @@ html {
   content:"⬤";
   width: 12px;
   height: 12px;
-  font-family:system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  font-family:IRANSans,system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
   line-height:normal;
   margin-left:.25rem;
   vertical-align:middle;
@@ -1914,7 +1954,7 @@ html {
   .result-streaming>ul:last-child>li:last-child>ul:last-child>li:last-child>ul:last-child>li:last-child:after,
   .result-streaming>ul:last-child>li:last-child[*|\:not-has\(]:after {
     content:"⬤";
-    font-family:system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+    font-family:IRANSans,system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
     line-height:normal;
     margin-left:.25rem;
     vertical-align:middle;
@@ -1925,7 +1965,7 @@ html {
   }
   .result-streaming>ul:last-child>li:last-child:not(:has(*>li)):after {
     content:"⬤";
-    font-family:system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+    font-family:IRANSans,system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
     line-height:normal;
     margin-left:.25rem;
     vertical-align:middle;
@@ -1936,7 +1976,7 @@ html {
   }
   .result-streaming>ol:last-child>li:last-child[*|\:not-has\(]:after {
     content:"⬤";
-    font-family:system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+    font-family:IRANSans,system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
     line-height:normal;
     margin-left:.25rem;
     vertical-align:middle;
@@ -1947,7 +1987,7 @@ html {
   }
   .result-streaming>ol:last-child>li:last-child:not(:has(*>li)):after {
     content:"⬤";
-    font-family:system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+    font-family:IRANSans,system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
     line-height:normal;
     margin-left:.25rem;
     vertical-align:middle;
@@ -1961,7 +2001,7 @@ html {
   .result-streaming>ol:last-child>li:last-child:after,
   .result-streaming>ul:last-child>li:last-child:after {
     content:"⬤";
-    font-family:system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+    font-family:IRANSans,system-ui,Inter,Söhne Circle,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
     line-height:normal;
     margin-left:.25rem;
     vertical-align:middle;
