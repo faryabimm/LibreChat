@@ -43,13 +43,13 @@ const ChatForm = ({ index = 0 }) => {
 
   const submitMessage = useCallback(
     (data?: { text: string }) => {
+      document.querySelector('textarea[data-testid="text-input"]').blur();
+      console.log("I RAN.");
       if (!data) {
         return console.warn('No data provided to submitMessage');
       }
       ask({ text: data.text });
       methods.reset();
-      document.querySelector('textarea[data-testid="text-input"]').blur();
-
       textAreaRef.current?.setRangeText('', 0, data.text.length, 'end');
     },
     [ask, methods],
