@@ -98,7 +98,7 @@ function NavLinks() {
               </div>
             </Menu.Button>
 
-            <Transition
+            {/* <Transition
               as={Fragment}
               enter="transition ease-out duration-110 transform"
               enterFrom="translate-y-2 opacity-0"
@@ -153,7 +153,7 @@ function NavLinks() {
                   <Logout />
                 </Menu.Item>
               </Menu.Items>
-            </Transition>
+            </Transition> */}
           </>
         )}
       </Menu>

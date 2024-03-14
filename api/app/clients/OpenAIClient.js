@@ -1,3 +1,52 @@
+const defaultChatGptLabel = `دستیار خرید دیوار`;
+const defaultPromptPrefix = `
+First I give you some context. Then tell you how you should talk. And finally I guide you on how to ask good questions.
+
+
+This is the contex.
+
+Divar: A classifieds ads platform in Iran. 
+
+User: A user who is looking to buy something on Divar. 
+Might have a general or well-defined idea of what they want.
+
+You: A shopping assistant for a Divar user.
+
+Your main actions: 
+1- Chat with the user in Farsi, and ask questions from the user to learn more about the need and user's scoring function.
+2- Analyze user's need and scoring function and recommend relevant items.
+
+Your objective: Learn user's need and scoring function
+
+Your tone and language: You are in a conversaion with the user. So write your message in Persian in a casual, friendly, guiding tone.
+
+
+This is your guide for how you chat with the user. Write in Farsi.
+
+Step 1: Tell user a your understanding of their need based on the whole conversation.
+
+Step 2: Tell user what you learnt about their scoring function(“معیار”). Write user's scoring function in the table format. 
+
+
+
+Step 3: Analyse the need and scoring function. Think of different items that fits user's need. If the need is narrowed down, suggest 5 specific items. If it's broad, suggest 3 different category of items the user can explore. For each category or item, give user a link to a Divar search page with the proper query. The link template is:
+link_name
+
+Step 4: Ask only one question to learn more about user's need. And tell them that you would be happy to know anything else they like to consider.
+
+Step 5: Write this disclaimer at the end of each message: توجه: من یه نسخه آزمایشی از دست‌یار خرید . دیوارم. مراقب باش که داده شخصی‌ای بهم ندی. ممکنه بعضی وقت‌ها هم حرفایی بزنم که مبتنی بر واقعیت نباشه.
+
+
+Here is a guide to enhance the questions you ask:
+- You should ask targeted, open-ended questions that delve into what the user is trying to achieve, any specific features or qualities they value, constraints such as budget or time, and any underlying motivations or concerns driving their search.
+- Ensure to learn not just about the product but also who will be using it, for what purpose, and in what conditions.
+- Seek information that provides a more comprehensive view of the user's situation. This includes asking about any previous experiences with similar products, budget constraints, and any must-have features or deal-breakers.
+- The questions should be easy to answer, don't confuse the user by asking many things at one message. 
+- If you don't have any specific question, ask an exploratory question like whether there is anything else that the user wants to consider.
+`;
+
+
+
 const OpenAI = require('openai');
 const { HttpsProxyAgent } = require('https-proxy-agent');
 const {
@@ -174,12 +223,12 @@ class OpenAIClient extends BaseClient {
         model: this.modelOptions.model,
         endpoint: this.options.endpoint,
         endpointType: this.options.endpointType,
-        chatGptLabel: this.options.chatGptLabel,
+        chatGptLabel: this.options.chatGptLabel || defaultChatGptLabel,
         modelDisplayLabel: this.options.modelDisplayLabel,
       });
 
     this.userLabel = this.options.userLabel || 'User';
-    this.chatGptLabel = this.options.chatGptLabel || 'Assistant';
+    this.chatGptLabel = this.options.chatGptLabel || defaultChatGptLabel || 'Assistant';
 
     this.setupTokens();
 
@@ -364,8 +413,8 @@ class OpenAIClient extends BaseClient {
 
   getSaveOptions() {
     return {
-      chatGptLabel: this.options.chatGptLabel,
-      promptPrefix: this.options.promptPrefix,
+      chatGptLabel: this.options.chatGptLabel || defaultChatGptLabel,
+      promptPrefix: this.options.promptPrefix || defaultPromptPrefix || '',
       resendImages: this.options.resendImages,
       imageDetail: this.options.imageDetail,
       ...this.modelOptions,
@@ -375,7 +424,7 @@ class OpenAIClient extends BaseClient {
   getBuildMessagesOptions(opts) {
     return {
       isChatCompletion: this.isChatCompletion,
-      promptPrefix: opts.promptPrefix,
+      promptPrefix: opts.promptPrefix || defaultPromptPrefix,
       abortController: opts.abortController,
     };
   }
@@ -446,7 +495,7 @@ class OpenAIClient extends BaseClient {
   async buildMessages(
     messages,
     parentMessageId,
-    { isChatCompletion = false, promptPrefix = null },
+    { isChatCompletion = false, promptPrefix = null || defaultPromptPrefix },
     opts,
   ) {
     let orderedMessages = this.constructor.getMessagesForConversation({
@@ -466,7 +515,7 @@ class OpenAIClient extends BaseClient {
     let tokenCountMap;
     let promptTokens;
 
-    promptPrefix = (promptPrefix || this.options.promptPrefix || '').trim();
+    promptPrefix = (promptPrefix || this.options.promptPrefix || defaultPromptPrefix || '').trim();
     if (promptPrefix) {
       promptPrefix = `Instructions:\n${promptPrefix}`;
       instructions = {
@@ -505,7 +554,7 @@ class OpenAIClient extends BaseClient {
       const formattedMessage = formatMessage({
         message,
         userName: this.options?.name,
-        assistantName: this.options?.chatGptLabel,
+        assistantName: this.options?.chatGptLabel || defaultChatGptLabel,
       });
 
       const needsTokenCount = this.contextStrategy && !orderedMessages[i].tokenCount;
@@ -890,7 +939,7 @@ ${convo}
             text: newText,
           },
           userName: this.options?.name,
-          assistantName: this.options?.chatGptLabel,
+          assistantName: this.options?.chatGptLabel || defaultChatGptLabel,
         }),
       ];
     }
@@ -915,7 +964,7 @@ ${convo}
         context,
         formatOptions: {
           userName: this.options?.name,
-          assistantName: this.options?.chatGptLabel ?? this.options?.modelLabel,
+          assistantName: (this.options?.chatGptLabel ?? this.options?.modelLabel) || defaultChatGptLabel,
         },
         previous_summary: this.previous_summary?.summary,
         signal: this.abortController.signal,

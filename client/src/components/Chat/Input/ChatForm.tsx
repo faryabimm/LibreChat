@@ -113,11 +113,11 @@ const ChatForm = ({ index = 0 }) => {
                 )}
               />
             )}
-            <AttachFile
+            {/* <AttachFile
               endpoint={_endpoint ?? ''}
               endpointType={endpointType}
               disabled={requiresKey}
-            />
+            /> */}
             {isSubmitting && showStopButton ? (
               <StopButton stop={handleStopGenerating} setShowStopButton={setShowStopButton} />
             ) : (

@@ -43,7 +43,8 @@ const Nav = ({ navVisible, setNavVisible }) => {
   const [showLoading, setShowLoading] = useState(false);
 
   const searchQuery = useRecoilValue(store.searchQuery);
-  const isSearchEnabled = useRecoilValue(store.isSearchEnabled);
+  // const isSearchEnabled = useRecoilValue(store.isSearchEnabled);
+  const isSearchEnabled = false;
   const { newConversation, searchPlaceholderConversation } = useConversation();
 
   const { refreshConversations } = useConversations();
@@ -152,7 +153,7 @@ const Nav = ({ navVisible, setNavVisible }) => {
                         toggleNav={itemToggleNav}
                         subHeaders={isSearchEnabled && <SearchBar clearSearch={clearSearch} />}
                       />
-                      <Conversations
+                      {/* <Conversations
                         conversations={conversations}
                         moveToTop={moveToTop}
                         toggleNav={itemToggleNav}
@@ -162,7 +163,7 @@ const Nav = ({ navVisible, setNavVisible }) => {
                           'm-1 mx-auto mb-4 h-4 w-4',
                           isFetchingNextPage || showLoading ? 'opacity-1' : 'opacity-0',
                         )}
-                      />
+                      /> */}
                     </div>
                     <NavLinks />
                   </nav>

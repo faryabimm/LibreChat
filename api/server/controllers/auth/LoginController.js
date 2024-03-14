@@ -14,7 +14,8 @@ const loginController = async (req, res) => {
 
     const token = await setAuthTokens(user._id, res);
 
-    return res.status(200).send({ token, user });
+    return res.redirect("https://shopping-assistant.divar.dev/");
+    // return res.status(200).send({ token, user });
   } catch (err) {
     logger.error('[loginController]', err);
   }
