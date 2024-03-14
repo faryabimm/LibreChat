@@ -17,7 +17,7 @@ export default function MobileNav({
   return (
     <div className="text-token-primary border-token-border-medium bg-token-surface-primary sticky top-0 z-10 flex min-h-[40px] items-center border-b bg-white dark:bg-gray-800 dark:text-white md:hidden">
       <h1 className="flex-1 text-center text-base font-normal">
-        {title || localize('com_ui_new_chat')}
+        {title || 'مکالمه جدید'}
       </h1>
       <button
         type="button"
