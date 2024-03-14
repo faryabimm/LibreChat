@@ -3,7 +3,7 @@ const { isEnabled } = require('~/server/utils');
 const { logger } = require('~/config');
 
 const titleConvo = async ({ text, response }) => {
-  let title = 'New Chat';
+  let title = 'مکالمه جدید';
   const { TITLE_CONVO = 'true' } = process.env ?? {};
   if (!isEnabled(TITLE_CONVO)) {
     return title;

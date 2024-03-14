@@ -8,7 +8,7 @@ test.describe('Settings suite', () => {
         'lastConversationSetup',
         JSON.stringify({
           conversationId: 'new',
-          title: 'New Chat',
+          title: 'مکالمه جدید',
           endpoint: 'bingAI',
           createdAt: '',
           updatedAt: '',

@@ -767,11 +767,11 @@ class OpenAIClient extends BaseClient {
    * @param {string} [params.conversationId] - The current conversationId, if not already defined on client initialization.
    * @param {string} [params.responseText=''] - The AI's immediate response to the user.
    *
-   * @returns {Promise<string | 'New Chat'>} A promise that resolves to the generated conversation title.
+   * @returns {Promise<string | 'مکالمه جدید'>} A promise that resolves to the generated conversation title.
    *                            In case of failure, it will return the default title, "New Chat".
    */
   async titleConvo({ text, conversationId, responseText = '' }) {
-    let title = 'New Chat';
+    let title = 'مکالمه جدید';
     const convo = `||>User:
 "${truncateText(text)}"
 ||>Response:

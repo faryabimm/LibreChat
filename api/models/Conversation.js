@@ -101,7 +101,7 @@ module.exports = {
         return null;
       } else {
         // TypeError: Cannot read properties of null (reading 'title')
-        return convo?.title || 'New Chat';
+        return convo?.title || 'مکالمه جدید';
       }
     } catch (error) {
       logger.error('[getConvoTitle] Error getting conversation title', error);

@@ -133,7 +133,7 @@ const EditController = async (req, res, next, initializeClient) => {
 
     const conversation = await getConvo(user, conversationId);
     conversation.title =
-      conversation && !conversation.title ? null : conversation?.title || 'New Chat';
+      conversation && !conversation.title ? null : conversation?.title || 'مکالمه جدید';
 
     if (client.options.attachments) {
       conversation.model = endpointOption.modelOptions.model;

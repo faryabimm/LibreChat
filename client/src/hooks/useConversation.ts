@@ -69,7 +69,7 @@ const useConversation = () => {
       switchToConversation(
         {
           conversationId: 'new',
-          title: 'New Chat',
+          title: 'مکالمه جدید',
           ...template,
           endpoint: null,
           createdAt: '',

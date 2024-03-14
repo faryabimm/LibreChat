@@ -130,7 +130,7 @@ const useNewConvo = (index = 0) => {
     } = {}) => {
       const conversation = {
         conversationId: 'new',
-        title: 'New Chat',
+        title: 'مکالمه جدید',
         endpoint: null,
         ...template,
         createdAt: '',

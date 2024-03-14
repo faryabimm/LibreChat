@@ -69,7 +69,7 @@ async function abortRun(req, res) {
   });
 
   const finalEvent = {
-    title: 'New Chat',
+    title: 'مکالمه جدید',
     final: true,
     conversation: await getConvo(req.user.id, conversationId),
     runMessages,

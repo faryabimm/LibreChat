@@ -251,7 +251,7 @@ export default function useSSE(submission: TSubmission | null, index = 0) {
       let update = {} as TConversation;
       setConversation((prevState) => {
         let title = prevState?.title;
-        if (parentMessageId !== Constants.NO_PARENT && title?.toLowerCase()?.includes('new chat')) {
+        if (parentMessageId !== Constants.NO_PARENT && title?.toLowerCase()?.includes('مکالمه جدید')) {
           const convos = queryClient.getQueryData<ConversationData>([QueryKeys.allConversations]);
           const cachedConvo = getConversationById(convos, conversationId);
           title = cachedConvo?.title;

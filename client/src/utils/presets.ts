@@ -47,7 +47,7 @@ export const getPresetTitle = (preset: TPreset) => {
   if (label && presetTitle && label.toLowerCase().includes(presetTitle.toLowerCase())) {
     title = label + ': ';
     label = '';
-  } else if (presetTitle && presetTitle.trim() !== 'New Chat') {
+  } else if (presetTitle && presetTitle.trim() !== 'مکالمه جدید') {
     title = presetTitle + ': ';
   }
 

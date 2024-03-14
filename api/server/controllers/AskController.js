@@ -136,7 +136,7 @@ const AskController = async (req, res, next, initializeClient, addTitle) => {
 
     const conversation = await getConvo(user, conversationId);
     conversation.title =
-      conversation && !conversation.title ? null : conversation?.title || 'New Chat';
+      conversation && !conversation.title ? null : conversation?.title || 'مکالمه جدید';
 
     if (client.options.attachments) {
       userMessage.files = client.options.attachments;
