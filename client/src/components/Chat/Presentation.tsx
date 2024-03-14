@@ -17,6 +17,7 @@ export default function Presentation({
   panel?: React.ReactNode;
   useSidePanel?: boolean;
 }) {
+  useSidePanel = false;
   let hideSidePanel = useRecoilValue(store.hideSidePanel);
   hideSidePanel = true;
   const { isOver, canDrop, drop } = useDragHelpers();
@@ -48,7 +49,8 @@ export default function Presentation({
     mutateAsync({ files });
   }, [mutateAsync]);
 
-  const isActive = canDrop && isOver;
+  let isActive = canDrop && isOver;
+  isActive = false;
   const resizableLayout = localStorage.getItem('react-resizable-panels:layout');
   const collapsedPanels = localStorage.getItem('react-resizable-panels:collapsed');
 
