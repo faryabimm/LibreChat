@@ -43,7 +43,7 @@ const ChatForm = ({ index = 0 }) => {
 
   const submitMessage = useCallback(
     (data?: { text: string }) => {
-      document.querySelector('textarea[data-testid="text-input"]').blur();
+      setTimeout(()=>{document.querySelector('textarea[data-testid="text-input"]').blur();}, 500);
       console.log("I RAN.");
       if (!data) {
         return console.warn('No data provided to submitMessage');
