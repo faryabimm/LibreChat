@@ -17,7 +17,8 @@ export default function Presentation({
   panel?: React.ReactNode;
   useSidePanel?: boolean;
 }) {
-  const hideSidePanel = useRecoilValue(store.hideSidePanel);
+  let hideSidePanel = useRecoilValue(store.hideSidePanel);
+  hideSidePanel = true;
   const { isOver, canDrop, drop } = useDragHelpers();
   const setFilesToDelete = useSetFilesToDelete();
   const { mutateAsync } = useDeleteFilesMutation({

@@ -1164,6 +1164,7 @@ body,
 html {
   height: 100%;
   direction: rtl;
+  font-family: IRANSans, sans-serif !important;
 }
 
 .dark body,
